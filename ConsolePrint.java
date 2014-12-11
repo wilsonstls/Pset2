@@ -7,10 +7,10 @@ import java.io.File;
 public class ConsolePrint implements PrintStrategy
 {
    
-    public void print(String Pyramid)
+    public void print(String pyramid)
     {
       System.out.println("You selected to have the pyramid printed to the console !!\n");
-      System.out.println(Pyramid.toString());    
+      System.out.println(pyramid.toString());    
 
     }
 }
