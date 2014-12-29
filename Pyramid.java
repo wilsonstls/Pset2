@@ -1,42 +1,64 @@
 package pset2;
 /**
-*Accepts a height parameter to generate an object of a Pyramid. 
-*Override the loop to produce a string representation of the object.
+*12/22/14
+*Accepts a randomlly selected keyboard sign to generate an object of a Pyramid shape. 
 */
-class Pyramid 
+
+public abstract class Pyramid 
+{  
+
+    protected String keysign;
+
+      
+     public void pyramidConcrete(String keysign)
+      {
+         this.keysign = keysign;
+      //   StringBuilder pyramidConcrete = new StringBuilder();
+         int high =10;       // hard coded for height of 10 rows
+         int ht, indx, r, s; 
+         for (r = high; r > 0; r--)                // loop to generate num of rows for height
+         {indx = 0;        
+            for (s = 1; s < r; s++)               // first print blank spaces on a line
+             {
+                System.out.println("&");
+             // pyramidConcrete.append("&");
+              indx = s;                           // set index holder where spaces on line end
+             }
+             for (ht = indx; ht < high; ht++)    // begin printing (sign) to fill in rest of the line
+              {              
+                 System.out.println(keysign);
+             //  pyramidConcrete.append(String keysigh);
+              }       
+                 System.out.println("/n");
+          } 
+       //     System.out.println(pyramidConcrete.toString());
+         //    return PyramidConcrete();
+
+      }
+
+    public abstract void pyramidCharacter();
+}
+
+ 
+
+class PercentSign extends Pyramid 
 {
-    private int height;
 
-    public Pyramid(int height)
-    {
-       this.height = height;
-    }
+   @Override 
+   public void pyramidCharacter()
+   {
+   }
 
-    @Override
-    public String toString()
-    {
+}
 
-        StringBuilder pyramid = new StringBuilder();
-        int indx;
-        for (int r = height; r > 0; r--)              // loop to generate num of rows for height
-        {
-           indx = 0;
-                    
-           for (int s = 1; s < r; s++)               // first print blank spaces on a line
-            {
-              pyramid.append(" ");
-              indx = s;                              // set index holder to index on line where spaces end
-            }           
-            for (int ht = indx; ht < height; ht++)   // begin printing # to fill in rest of the line
-            {
-               pyramid.append("#");
-            }
 
-          pyramid.append("\n");      // line break
-         }
-     
-      return pyramid.toString();   
-     
-    } 
-} 
-   
+class PoundSign extends Pyramid
+{
+   @Override 
+   public void pyramidCharacter()
+   {
+   }
+
+}  
+  
+
