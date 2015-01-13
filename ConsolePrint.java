@@ -1,17 +1,18 @@
 package pset2;
-import java.io.File;
+import java.io.*;
 /**
-* this program accepts an object string and prints it to the screen  .
+* prints output to the screen.
 */
 
 public class ConsolePrint implements PrintStrategy
-{
-   
-    public void print(String pyramid)
+{ 
+    public void print(Pyramid pyramid)
     {
-      System.out.println("You selected to have the pyramid printed to the console !!\n");
-      System.out.println(pyramid.toString());    
+      System.out.println("You selected to print to the console screen !!\n");
 
+      PrintWriter pw = new PrintWriter(System.out);
+                  pw.println(pyramid.toString());
+                  pw.flush();
+                  pw.close();
     }
 }
-

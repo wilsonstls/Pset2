@@ -1,64 +1,73 @@
 package pset2;
+import java.io.*;
 /**
-*12/22/14
-*Accepts a randomlly selected keyboard sign to generate an object of a Pyramid shape. 
+*1/11/15
+*generates an object string of a Pyramid shape. 
 */
 
 public abstract class Pyramid 
 {  
+      public abstract Pyramid pyramidCharacter();       // Abstract method
+  
+      protected String keysign;
 
-    protected String keysign;
-
-      
-     public void pyramidConcrete(String keysign)
-      {
+      public String pyramid(String keysign)     // Concrete method
+       {
          this.keysign = keysign;
-      //   StringBuilder pyramidConcrete = new StringBuilder();
          int high =10;       // hard coded for height of 10 rows
          int ht, indx, r, s; 
+         StringBuilder sb = new StringBuilder();
          for (r = high; r > 0; r--)                // loop to generate num of rows for height
          {indx = 0;        
             for (s = 1; s < r; s++)               // first print blank spaces on a line
              {
-                System.out.println("&");
-             // pyramidConcrete.append("&");
-              indx = s;                           // set index holder where spaces on line end
+               sb.append(" ");
+               indx = s;                           // set index holder where spaces on line end
              }
-             for (ht = indx; ht < high; ht++)    // begin printing (sign) to fill in rest of the line
+              for (ht = indx; ht < high; ht++)    // begin printing (sign) to fill in rest of the line
               {              
-                 System.out.println(keysign);
-             //  pyramidConcrete.append(String keysigh);
+                 sb.append(keysign);
               }       
-                 System.out.println("/n");
-          } 
-       //     System.out.println(pyramidConcrete.toString());
-         //    return PyramidConcrete();
+            sb.append("\n");        // line break
+          }  
+         return sb.toString();
+       }  
 
-      }
+      @Override
+      public abstract String toString();     // Abstract method
 
-    public abstract void pyramidCharacter();
-}
-
+}   // close abstract class
  
 
-class PercentSign extends Pyramid 
-{
-
+class PercentSignPyramid extends Pyramid 
+{ 
    @Override 
-   public void pyramidCharacter()
-   {
+   public Pyramid pyramidCharacter()
+   {  
+      return this;
    }
 
+   @Override 
+   public String toString()
+   {
+      return pyramid("%");
+   }
 }
 
 
-class PoundSign extends Pyramid
-{
+class PoundSignPyramid extends Pyramid
+{  
    @Override 
-   public void pyramidCharacter()
+   public Pyramid pyramidCharacter()
    {
+      return this;
    }
 
+   @Override 
+   public String toString()
+   {
+      return pyramid("#");
+   }
 }  
   
 

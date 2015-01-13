@@ -1,10 +1,9 @@
 package pset2;
-/**
-*interface file to accept a string for printing output
-*/
+import java.io.*;
+
 public interface PrintStrategy
-{
-   
-    public void print(String pyramid);
+{ 
+
+   public void print(Pyramid pyramid);
 
 }
