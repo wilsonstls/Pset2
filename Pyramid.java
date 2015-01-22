@@ -1,19 +1,16 @@
 package pset2;
 import java.io.*;
 /**
-*1/11/15
-*generates an object string of a Pyramid shape. 
+*1/22/15
+*generates an object string of a Pyramid shape using an abstract meehod. 
 */
 
 public abstract class Pyramid 
 {  
-      public abstract Pyramid pyramidCharacter();       // Abstract method
+      public abstract String pyramidCharacter();    
   
-      protected String keysign;
-
-      public String pyramid(String keysign)     // Concrete method
+      public String toString(String keysign)    
        {
-         this.keysign = keysign;
          int high =10;       // hard coded for height of 10 rows
          int ht, indx, r, s; 
          StringBuilder sb = new StringBuilder();
@@ -34,7 +31,11 @@ public abstract class Pyramid
        }  
 
       @Override
-      public abstract String toString();     // Abstract method
+      public String toString()
+      {
+          return toString(pyramidCharacter());
+      }
+
 
 }   // close abstract class
  
@@ -42,15 +43,9 @@ public abstract class Pyramid
 class PercentSignPyramid extends Pyramid 
 { 
    @Override 
-   public Pyramid pyramidCharacter()
+   public String pyramidCharacter()
    {  
-      return this;
-   }
-
-   @Override 
-   public String toString()
-   {
-      return pyramid("%");
+      return "%";
    }
 }
 
@@ -58,16 +53,10 @@ class PercentSignPyramid extends Pyramid
 class PoundSignPyramid extends Pyramid
 {  
    @Override 
-   public Pyramid pyramidCharacter()
+   public String pyramidCharacter()
    {
-      return this;
-   }
-
-   @Override 
-   public String toString()
-   {
-      return pyramid("#");
-   }
+      return "#";
+   }  
 }  
   
 

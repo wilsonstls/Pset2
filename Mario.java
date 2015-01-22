@@ -1,9 +1,8 @@
 package pset2;
 import java.util.Scanner;
 import java.util.Random;
-
 /*Pset2 for Java launchCode class
-*Date:  1-11-2015
+*Date:  1-22-2015
 *By:  Kevin Wilson
 *program generates 1-half of a pyramid populated with a keyboard sign that will be randomly selected at run time.
 *It will be printed to either the console or to a text file depending on user input also at runtime.
@@ -50,8 +49,8 @@ public class Mario
         {
           case 1:
              System.out.println("\nPercentSigns %%  were randomly selected\n");
-             Pyramid percentpyramid = new PercentSignPyramid(); 
-                     percentpyramid.pyramidCharacter();    
+             new PercentSignPyramid().pyramidCharacter();
+             Pyramid percentpyramid = new PercentSignPyramid();   
                 if (selprint == 2)  
                 { printstrategy2.print(percentpyramid);         
                 }  else
@@ -59,8 +58,8 @@ public class Mario
              break;
           case 2:
              System.out.println("\nPoundSigns ##  were randomly selected\n");
+             new PoundSignPyramid().pyramidCharacter();
              Pyramid poundpyramid = new PoundSignPyramid();
-                     poundpyramid.pyramidCharacter(); 
                if (selprint == 2)   
                 { printstrategy2.print(poundpyramid);
                 }  else
